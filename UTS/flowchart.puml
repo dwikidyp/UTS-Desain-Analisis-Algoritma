@@ -1,0 +1,49 @@
+@startuml Sistem Data Guru
+skinparam backgroundColor #FFFFFF
+skinparam handwritten false
+
+start
+:Login Admin;
+
+repeat
+    :Validasi Login;
+repeat while (Login Valid?) is (Tidak)
+->Ya;
+
+:Menu Utama;
+:Kelola Data Guru;
+
+switch (Pilih Operasi)
+    case (Tambah)
+    repeat
+        :Input Data Guru Baru;
+        :Validasi Data;
+    repeat while (Data Valid?) is (Tidak)
+    ->Ya;
+    :Simpan Data;
+    
+    case (Edit)
+    :Cari Data Guru;
+    repeat
+        :Edit Data Guru;
+        :Validasi Perubahan;
+    repeat while (Data Valid?) is (Tidak)
+    ->Ya;
+    :Update Data;
+    
+    case (Hapus)
+    :Cari Data Guru;
+    if (Konfirmasi Hapus?) then (Ya)
+        :Hapus Data;
+    else (Tidak)
+        :Kembali ke Menu Utama;
+    endif
+    
+    case (Lihat)
+    :Tampilkan Data Guru;
+endswitch
+
+:Log Aktivitas;
+
+stop
+@enduml
