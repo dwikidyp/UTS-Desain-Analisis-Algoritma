@@ -4,7 +4,7 @@ left to right direction
 skinparam packageStyle rectangle
 
 actor Admin
-actor "Guru" as Guru
+actor "Siswa" as Siswa
 
 rectangle "Sistem Data Guru" {
     usecase "Login" as UC1
@@ -31,7 +31,7 @@ Admin --> UC6
 Admin --> UC9
 Admin --> UC11
 
-Guru --> UC1
-Guru --> UC6
+Siswa --> UC1
+Siswa --> UC6
 
 @enduml
